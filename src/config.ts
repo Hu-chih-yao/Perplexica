@@ -13,6 +13,8 @@ interface Config {
     OPENAI: string;
     GROQ: string;
     ANTHROPIC: string;
+    NVIDIA: string;
+    Azure: string;
   };
   API_ENDPOINTS: {
     SEARXNG: string;
@@ -39,6 +41,10 @@ export const getOpenaiApiKey = () => loadConfig().API_KEYS.OPENAI;
 export const getGroqApiKey = () => loadConfig().API_KEYS.GROQ;
 
 export const getAnthropicApiKey = () => loadConfig().API_KEYS.ANTHROPIC;
+
+export const getNvidiaApiKey = () => loadConfig().API_KEYS.NVIDIA;
+
+export const getAzureApiKey = () => loadConfig().API_KEYS.Azure;
 
 export const getSearxngApiEndpoint = () =>
   process.env.SEARXNG_API_URL || loadConfig().API_ENDPOINTS.SEARXNG;

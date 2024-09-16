@@ -1,4 +1,5 @@
-import { EventEmitter, WebSocket } from 'ws';
+import { EventEmitter } from 'events';
+import { WebSocket } from 'ws';
 import { BaseMessage, AIMessage, HumanMessage } from '@langchain/core/messages';
 import handleWebSearch from '../agents/webSearchAgent';
 import handleAcademicSearch from '../agents/academicSearchAgent';
@@ -13,6 +14,8 @@ import db from '../db';
 import { chats, messages } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import crypto from 'crypto';
+import fs from 'fs/promises';
+import path from 'path';
 
 type Message = {
   messageId: string;
